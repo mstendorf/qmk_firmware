@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "i18n.h"
+#include "features/achordion.h"
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
@@ -16,12 +17,22 @@ enum custom_keycodes {
   ST_NEXT_FN,
 };
 
+#define HOME_S MT(MOD_LALT, KC_S)
+#define HOME_D MT(MOD_LGUI, KC_D)
+#define HOME_F MT(MOD_LSFT, KC_F)
+#define HOME_J MT(MOD_LSFT, KC_J)
+#define HOME_K MT(MOD_LGUI, KC_K)
+#define HOME_L MT(MOD_LALT, KC_L)
+#define HOME_V MT(MOD_LCTL, KC_V)
+#define HOME_M MT(MOD_LCTL, KC_M)
+#define HOME_C LT(4, KC_C)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-    CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRC,
-    KC_TAB,         KC_A,           MT(MOD_LALT, KC_S),MT(MOD_LGUI, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                           KC_H,           MT(MOD_LSFT, KC_J),MT(MOD_LGUI, KC_K),MT(MOD_RALT, KC_L),KC_SCLN,        KC_QUOTE,
-    ST_TO_DK,     KC_Z,           KC_X,           LT(4,KC_C),     MT(MOD_LCTL, KC_V),KC_B,                                           KC_N,           MT(MOD_LCTL, KC_M),KC_COMMA,       KC_DOT,         KC_SLASH,       MO(5),
+    CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+    KC_TAB,         KC_A,           HOME_S,         HOME_D,         HOME_F,         KC_G,                                           KC_H,           HOME_J,         HOME_K,         HOME_L,         KC_SCLN,        KC_QUOTE,
+    ST_TO_DK,     KC_Z,           KC_X,             HOME_C,         HOME_V,         KC_B,                                           KC_N,           HOME_M,         KC_COMMA,       KC_DOT,         KC_SLASH,       MO(5),
                                                     LT(1,KC_SPACE), LT(3,KC_ENTER),                                 KC_RIGHT_GUI,   LT(2,KC_BSPC)
   ),
   [1] = LAYOUT_voyager(
@@ -161,6 +172,7 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_achordion(keycode, record)) { return false; }
   switch (keycode) {
     case ST_TO_DK:
     if (record->event.pressed) {
@@ -220,4 +232,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
   return true;
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand in Dvorak.
+  switch (tap_hold_keycode) {
+    case HOME_D:  // A + U.
+      if (other_keycode == KC_W || other_keycode == KC_V) { return true; }
+      break;
+  }
+
+  // Also allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+
+  // Otherwise, follow the opposite hands rule.
+  return achordion_opposite_hands(tap_hold_record, other_record);
 }
