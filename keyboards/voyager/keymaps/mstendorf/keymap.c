@@ -27,7 +27,22 @@ enum custom_keycodes {
 #define HOME_M MT(MOD_LCTL, KC_M)
 #define HOME_C LT(4, KC_C)
 #define LT_ENTER LT(3, KC_ENTER)
-#define LT_SPACE LT(1, KC_SPACE)
+#define LT_SPACE_DK LT(7, KC_SPACE)
+#define LT_SPACE_US LT(1, KC_SPACE)
+#define RT_BSPC_DK LT(8, KC_BSPC)
+#define RT_BSPC_US LT(2, KC_BSPC)
+
+
+// danish mac symbols and letters
+#define DK_AT LALT(KC_BSLS)
+#define DK_BSLS LALT(LSFT(KC_7))
+#define DK_PIPE RALT(KC_I)
+#define DK_DOLLA RALT(LSFT(KC_3))
+#define DK_LTHN KC_GRAVE
+#define DK_MTHN LSFT(KC_GRAVE)
+#define DK_LCBRC LALT(LSFT(KC_8))
+#define DK_RCBRC LALT(LSFT(KC_9))
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -35,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     KC_TAB,         KC_A,           HOME_S,         HOME_D,         HOME_F,         KC_G,                                           KC_H,           HOME_J,         HOME_K,         HOME_L,         KC_SCLN,        KC_QUOTE,
     ST_TO_DK,     KC_Z,           KC_X,             HOME_C,         HOME_V,         KC_B,                                           KC_N,           HOME_M,         KC_COMMA,       KC_DOT,         KC_SLASH,       MO(5),
-                                                    LT_SPACE,       LT_ENTER,                                 KC_RIGHT_GUI,   LT(2,KC_BSPC)
+                                                                    LT_SPACE_US,    LT_ENTER,                                       KC_RIGHT_GUI,   RT_BSPC_US
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -77,20 +92,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_ARNG,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_AE,          DK_OSTR,
     ST_TO_UK,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    LT(7,KC_SPACE), KC_TRANSPARENT,                                 KC_RIGHT_GUI,    LT(8,KC_BSPC)
+                                                    LT_SPACE_DK, KC_TRANSPARENT,                                 KC_RIGHT_GUI,    RT_BSPC_DK
   ),
   [7] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, DK_GRV,         DK_EXLM,        DK_QUES,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_ASTR,        DK_PERC,        DK_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LALT(KC_BSLS),          DK_HASH,        LALT(LSFT(KC_7)),        DK_SLSH,        KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(KC_I),        DK_AMPR,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_TILD,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_CIRC,        RALT(LSFT(KC_3)),         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, DK_AT,          DK_HASH,        DK_BSLS,        DK_SLSH,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_PIPE,        DK_AMPR,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_TILD,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_CIRC,        DK_DOLLA,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [8] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_LPRN,        DK_RPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_DQUO,        DK_QUOT,        DK_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_GRAVE,        DK_LBRC,        DK_RBRC,        LSFT(KC_GRAVE),                                        KC_TRANSPARENT, DK_UNDS,        DK_MINS,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LALT(LSFT(KC_8)),        LALT(LSFT(KC_9)),        DK_PERC,                                        KC_TRANSPARENT, DK_EQL,         DK_EXLM,        DK_EQL,         KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, DK_LTHN,        DK_LBRC,        DK_RBRC,        DK_MTHN,                                        KC_TRANSPARENT, DK_UNDS,        DK_MINS,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_LCBRC,       DK_RCBRC,       DK_PERC,                                        KC_TRANSPARENT, DK_EQL,         DK_EXLM,        DK_EQL,         KC_TRANSPARENT, KC_TRANSPARENT,
 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -263,7 +278,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
     // same hand locale switching
     case HOME_S:  // A + U.
-      if (other_keycode == LT_SPACE) { return true; }
+      if (other_keycode == LT_SPACE_DK || other_keycode == LT_SPACE_US) { return true; }
       break;
   }
 
