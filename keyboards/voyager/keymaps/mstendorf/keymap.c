@@ -26,6 +26,8 @@ enum custom_keycodes {
 #define HOME_V MT(MOD_LCTL, KC_V)
 #define HOME_M MT(MOD_LCTL, KC_M)
 #define HOME_C LT(4, KC_C)
+#define LT_ENTER LT(3, KC_ENTER)
+#define LT_SPACE LT(1, KC_SPACE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -33,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     KC_TAB,         KC_A,           HOME_S,         HOME_D,         HOME_F,         KC_G,                                           KC_H,           HOME_J,         HOME_K,         HOME_L,         KC_SCLN,        KC_QUOTE,
     ST_TO_DK,     KC_Z,           KC_X,             HOME_C,         HOME_V,         KC_B,                                           KC_N,           HOME_M,         KC_COMMA,       KC_DOT,         KC_SLASH,       MO(5),
-                                                    LT(1,KC_SPACE), LT(3,KC_ENTER),                                 KC_RIGHT_GUI,   LT(2,KC_BSPC)
+                                                    LT_SPACE,       LT_ENTER,                                 KC_RIGHT_GUI,   LT(2,KC_BSPC)
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -246,6 +248,14 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   switch (tap_hold_keycode) {
     case HOME_D:  // A + U.
       if (other_keycode == KC_W || other_keycode == KC_V) { return true; }
+      break;
+
+    case HOME_V:  // A + U.
+      if (other_keycode == HOME_C) { return true; }
+      break;
+
+    case HOME_S + HOME_V:  // A + U.
+      if (other_keycode == LT_ENTER) { return true; }
       break;
   }
 
