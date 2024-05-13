@@ -246,18 +246,27 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand in Dvorak.
   switch (tap_hold_keycode) {
+    // same hand browser tab closing and pasting
     case HOME_D:  // A + U.
       if (other_keycode == KC_W || other_keycode == KC_V) { return true; }
       break;
 
+    // same hand Ctrl-c
     case HOME_V:  // A + U.
       if (other_keycode == HOME_C) { return true; }
       break;
 
+    // same hand rectangle fullscren
     case HOME_S + HOME_V:  // A + U.
       if (other_keycode == LT_ENTER) { return true; }
       break;
+
+    // same hand locale switching
+    case HOME_S:  // A + U.
+      if (other_keycode == LT_SPACE) { return true; }
+      break;
   }
+
 
   // Also allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
