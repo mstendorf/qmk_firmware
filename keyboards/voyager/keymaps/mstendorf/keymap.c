@@ -42,72 +42,72 @@ enum custom_keycodes {
 #define DK_MTHN LSFT(KC_GRAVE)
 #define DK_LCBRC LALT(LSFT(KC_8))
 #define DK_RCBRC LALT(LSFT(KC_9))
+#define TRANS KC_TRANSPARENT
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-    CW_TOGG,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
-    KC_TAB,         KC_A,           HOME_S,         HOME_D,         HOME_F,         KC_G,                                           KC_H,           HOME_J,         HOME_K,         HOME_L,         KC_SCLN,        KC_QUOTE,
-    ST_TO_DK,     KC_Z,           KC_X,             HOME_C,         HOME_V,         KC_B,                                           KC_N,           HOME_M,         KC_COMMA,       KC_DOT,         KC_SLASH,       MO(5),
-                                                                    LT_SPACE_US,    LT_ENTER,                                       KC_RIGHT_GUI,   RT_BSPC_US
+    KC_ESCAPE,  KC_1,    KC_2,     KC_3,     KC_4,      KC_5,                 KC_6,    KC_7,     KC_8,       KC_9,     KC_0,       KC_MINUS,
+    CW_TOGG,    KC_Q,    KC_W,     KC_E,     KC_R,      KC_T,                 KC_Y,    KC_U,     KC_I,       KC_O,     KC_P,       KC_BSLS,
+    KC_TAB,     KC_A,    HOME_S,   HOME_D,   HOME_F,    KC_G,                 KC_H,    HOME_J,   HOME_K,     HOME_L,   KC_SCLN,    KC_QUOTE,
+    ST_TO_DK,   KC_Z,    KC_X,     HOME_C,   HOME_V,    KC_B,                 KC_N,    HOME_M,   KC_COMMA,   KC_DOT,   KC_SLASH,   MO(5),
+                                                  LT_SPACE_US,    LT_ENTER,    KC_RIGHT_GUI,   RT_BSPC_US
   ),
   [1] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_GRAVE,       KC_EXLM,        KC_QUES,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_PERC,        KC_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_AT,          KC_HASH,        KC_BSLS,        KC_SLASH,       KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PIPE,        KC_AMPR,        KC_COLN,        KC_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TILD,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_DLR,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     KC_GRAVE,  KC_EXLM,   KC_QUES,   TRANS,               TRANS,     KC_ASTR,   KC_PERC,   KC_PLUS,   TRANS,     TRANS,
+    TRANS,     KC_AT,     KC_HASH,   KC_BSLS,   KC_SLASH,  TRANS,               TRANS,     KC_PIPE,   KC_AMPR,   KC_COLN,   KC_SCLN,   TRANS,
+    TRANS,     TRANS,     TRANS,     KC_TILD,   TRANS,     TRANS,               TRANS,     KC_CIRC,   KC_DLR,    TRANS,     TRANS,     TRANS,
+                                                        TRANS, TRANS,       TRANS, TRANS
   ),
   [2] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, DK_LBRC,        KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_DQUO,        KC_QUOTE,       KC_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_LABK,        KC_LBRC,        KC_RBRC,        KC_RABK,                                        KC_TRANSPARENT, KC_UNDS,        KC_MINUS,       KC_COLN,        KC_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LCBR,        KC_RCBR,        KC_PERC,                                        KC_TRANSPARENT, KC_EQUAL,       KC_EXLM,        KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+    TRANS,     DK_LBRC,   TRANS,     KC_LPRN,   KC_RPRN,   TRANS,               TRANS,     KC_DQUO,   KC_QUOTE,  KC_PLUS,   TRANS,     TRANS,
+    TRANS,     TRANS,     KC_LABK,   KC_LBRC,   KC_RBRC,   KC_RABK,             TRANS,     KC_UNDS,   KC_MINUS,  KC_COLN,   KC_SCLN,   TRANS,
+    TRANS,     TRANS,     TRANS,     KC_LCBR,   KC_RCBR,   KC_PERC,             TRANS,     KC_EQUAL,  KC_EXLM,   KC_EQUAL,  TRANS,     TRANS,
+                                                         TRANS, TRANS,      TRANS, TRANS
   ),
   [3] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, ST_PREV_DIAG,     ST_NEXT_DIAG,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, ST_PREV_FN,     ST_NEXT_FN,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     TRANS,        TRANS,        TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     ST_PREV_DIAG, ST_NEXT_DIAG, TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               KC_LEFT,   KC_DOWN,      KC_UP,        KC_RIGHT,  TRANS,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     ST_PREV_FN,   ST_NEXT_FN,   TRANS,     TRANS,     TRANS,
+                                                        TRANS, TRANS,        TRANS, TRANS
   ),
   [4] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_SLASH,       KC_ASTR,        KC_MINUS,       KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_PLUS,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_4,           KC_5,           KC_6,           KC_COMMA,       KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_0,           KC_1,           KC_2,           KC_3,           KC_DOT,         KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     TRANS,     KC_SLASH,     KC_ASTR,     KC_MINUS,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     KC_7,      KC_8,         KC_9,        KC_PLUS,      TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     KC_4,      KC_5,         KC_6,        KC_COMMA,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               KC_0,      KC_1,      KC_2,         KC_3,        KC_DOT,       TRANS,
+                                                       TRANS, TRANS,         TRANS, TRANS
   ),
   [5] = LAYOUT_voyager(
-    RGB_TOG,        TOGGLE_LAYER_COLOR,RGB_MODE_FORWARD,RGB_SLD,        RGB_VAD,        RGB_VAI,                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_AUDIO_MUTE,  KC_TRANSPARENT,                                 KC_PAGE_UP,     KC_HOME,        KC_UP,          KC_END,         KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_MEDIA_STOP,  KC_MEDIA_PLAY_PAUSE,KC_TRANSPARENT,                                 KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, HSV_0_255_255,  HSV_74_255_255, HSV_169_255_255,                                KC_TRANSPARENT, LCTL(LSFT(KC_TAB)),LCTL(KC_TAB),   KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    RGB_TOG,     TOGGLE_LAYER_COLOR,    RGB_MODE_FORWARD,     RGB_SLD,           RGB_VAD,              RGB_VAI,                     TRANS,       TRANS,              TRANS,          TRANS,     TRANS,     QK_BOOT,
+    TRANS,       TRANS,                 KC_AUDIO_VOL_DOWN,    KC_AUDIO_VOL_UP,   KC_AUDIO_MUTE,        TRANS,                       KC_PAGE_UP,  KC_HOME,            KC_UP,          KC_END,    TRANS,     TRANS,
+    TRANS,       KC_MEDIA_PREV_TRACK,   KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,     KC_MEDIA_PLAY_PAUSE,  TRANS,                       KC_PGDN,     KC_LEFT,            KC_DOWN,        KC_RIGHT,  TRANS,     TRANS,
+    TRANS,       TRANS,                 TRANS,                HSV_0_255_255,     HSV_74_255_255,       HSV_169_255_255,             TRANS,       LCTL(LSFT(KC_TAB)), LCTL(KC_TAB),   TRANS,     TRANS,     TRANS,
+                                                                                                             TRANS, TRANS,       TRANS, TRANS
   ),
   [6] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_ARNG,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_AE,          DK_OSTR,
-    ST_TO_UK,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    LT_SPACE_DK, KC_TRANSPARENT,                                 KC_RIGHT_GUI,    RT_BSPC_DK
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     DK_ARNG,
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     DK_AE,     DK_OSTR,
+    ST_TO_UK,  TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+                                                  LT_SPACE_DK, TRANS,     KC_RIGHT_GUI,    RT_BSPC_DK
   ),
   [7] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, DK_GRV,         DK_EXLM,        DK_QUES,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_ASTR,        DK_PERC,        DK_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, DK_AT,          DK_HASH,        DK_BSLS,        DK_SLSH,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_PIPE,        DK_AMPR,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_TILD,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_CIRC,        DK_DOLLA,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     DK_GRV,    DK_EXLM,   DK_QUES,   TRANS,              TRANS,     DK_ASTR,   DK_PERC,   DK_PLUS,   TRANS,     TRANS,
+    TRANS,     DK_AT,     DK_HASH,   DK_BSLS,   DK_SLSH,   TRANS,              TRANS,     DK_PIPE,   DK_AMPR,   DK_COLN,   DK_SCLN,   TRANS,
+    TRANS,     TRANS,     TRANS,     DK_TILD,   TRANS,     TRANS,              TRANS,     DK_CIRC,   DK_DOLLA,  TRANS,     TRANS,     TRANS,
+                                                        TRANS, TRANS,     TRANS, TRANS
   ),
   [8] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_LPRN,        DK_RPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, DK_DQUO,        DK_QUOT,        DK_PLUS,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, DK_LTHN,        DK_LBRC,        DK_RBRC,        DK_MTHN,                                        KC_TRANSPARENT, DK_UNDS,        DK_MINS,        DK_COLN,        DK_SCLN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DK_LCBRC,       DK_RCBRC,       DK_PERC,                                        KC_TRANSPARENT, DK_EQL,         DK_EXLM,        DK_EQL,         KC_TRANSPARENT, KC_TRANSPARENT,
-
-                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
+    TRANS,     TRANS,     TRANS,     DK_LPRN,   DK_RPRN,   TRANS,              TRANS,     DK_DQUO,   DK_QUOT,   DK_PLUS,   TRANS,     TRANS,
+    TRANS,     TRANS,     DK_LTHN,   DK_LBRC,   DK_RBRC,   DK_MTHN,            TRANS,     DK_UNDS,   DK_MINS,   DK_COLN,   DK_SCLN,   TRANS,
+    TRANS,     TRANS,     TRANS,     DK_LCBRC,  DK_RCBRC,  DK_PERC,            TRANS,     DK_EQL,    DK_EXLM,   DK_EQL,    TRANS,     TRANS,
+                                                        TRANS, TRANS,     TRANS, TRANS
   ),
 };
 
@@ -263,7 +263,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   switch (tap_hold_keycode) {
     // same hand browser tab closing and pasting
     case HOME_D:  // A + U.
-      if (other_keycode == KC_W || other_keycode == KC_V) { return true; }
+      if (other_keycode == KC_W || other_keycode == KC_V || other_keycode == KC_R) { return true; }
       break;
 
     // same hand Ctrl-c
@@ -281,7 +281,6 @@ bool achordion_chord(uint16_t tap_hold_keycode,
       if (other_keycode == LT_SPACE_DK || other_keycode == LT_SPACE_US) { return true; }
       break;
   }
-
 
   // Also allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
