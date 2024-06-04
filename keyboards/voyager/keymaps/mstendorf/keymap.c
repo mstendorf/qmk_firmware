@@ -263,7 +263,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   switch (tap_hold_keycode) {
     // same hand browser tab closing and pasting
     case HOME_D:  // A + U.
-      if (other_keycode == KC_W || other_keycode == KC_V || other_keycode == KC_R) { return true; }
+      if (other_keycode == KC_W || other_keycode == KC_V || other_keycode == KC_R || other_keycode == KC_Q) { return true; }
       break;
 
     // same hand Ctrl-c
