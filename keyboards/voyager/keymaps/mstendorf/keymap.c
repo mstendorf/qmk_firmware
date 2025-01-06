@@ -1,3 +1,5 @@
+#include "keycodes.h"
+#include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "i18n.h"
@@ -33,6 +35,7 @@ enum custom_keycodes {
 #define RT_BSPC_US LT(2, KC_BSPC)
 
 
+
 // danish mac symbols and letters
 #define DK_AT LALT(KC_BSLS)
 #define DK_BSLS LALT(LSFT(KC_7))
@@ -51,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CW_TOGG,    KC_Q,    KC_W,     KC_E,     KC_R,      KC_T,                 KC_Y,    KC_U,     KC_I,       KC_O,     KC_P,       KC_BSLS,
     KC_TAB,     KC_A,    HOME_S,   HOME_D,   HOME_F,    KC_G,                 KC_H,    HOME_J,   HOME_K,     HOME_L,   KC_SCLN,    KC_QUOTE,
     ST_TO_DK,   KC_Z,    KC_X,     HOME_C,   HOME_V,    KC_B,                 KC_N,    HOME_M,   KC_COMMA,   KC_DOT,   KC_SLASH,   MO(5),
-                                                  LT_SPACE_US,    LT_ENTER,    KC_RIGHT_GUI,   RT_BSPC_US
+                                                  LT_SPACE_US,    LT_ENTER,    ALL_T(KC_ESCAPE),   RT_BSPC_US
   ),
   [1] = LAYOUT_voyager(
     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,               TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
@@ -93,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     DK_ARNG,
     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     DK_AE,     DK_OSTR,
     ST_TO_UK,  TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
-                                                  LT_SPACE_DK, TRANS,     KC_RIGHT_GUI,    RT_BSPC_DK
+                                                  LT_SPACE_DK, TRANS,     ALL_T(KC_ESCAPE),    RT_BSPC_DK
   ),
   [7] = LAYOUT_voyager(
     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,              TRANS,     TRANS,     TRANS,     TRANS,     TRANS,     TRANS,
